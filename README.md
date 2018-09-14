@@ -1,3 +1,2 @@
 # CLion-test
-Prueba de CLion
-Importando desde CLion
+Prueba importando desde CLion
