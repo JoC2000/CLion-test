@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,m=0,s=0;
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        s=s+i;
+        m=m+i*i;
+    }
+    s=s*s;
+    cout<<s-m;
+}
