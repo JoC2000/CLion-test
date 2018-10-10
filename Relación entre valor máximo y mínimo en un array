@@ -1,0 +1,27 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    float n, cm = 0, cmi=0;
+    float r;
+    int notas[6];
+    for (int i = 0; i < 6; i++) {
+        cin >> n;
+        notas[i] = n;
+    }
+    cm = notas[0];
+    cmi = notas[0];
+
+    for (int i=0; i<6; i++){
+        if (notas[i]> cm){
+            cm=notas[i];
+        }
+        if (notas[i]< cmi){
+            cmi=notas[i];
+        }
+    }
+    r=r+cmi/cm;
+    cout<<fixed<<setprecision(4)<<r;
+}
