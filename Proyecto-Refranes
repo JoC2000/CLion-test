@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+void mostrarrefranincompleto(){
+}
+void mostrarRefranCompleto(int n){
+}
+void obtenerRespuesta(){
+}
+void compararRespuesta(string respuesta){
+}
+void mostrarSignificado(int n){
+}
+void menuPrograma(){
+}
+int main(){
+    mostrarrefranincompleto();
+}
