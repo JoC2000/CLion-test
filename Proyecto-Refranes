@@ -4,7 +4,10 @@ string refranes[3][5]={{"A palabras necias ***** ******", "A caballo regalado **
                       {"oidos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
                       {"A palabras necias oidos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
 void compararRespuesta(string y){
-  cout<<y;
+  for(int j=0;j<5;j++){
+    if(y==refranes[0][j])
+    cout<<"¡Punto!";
+  }
 }
 void mostrarRefranincompleto(int i){
 for(int j=0;j<5;j++){
@@ -17,7 +20,7 @@ for(int j=0;j<5;j++){
     string y;
     cout<<"Ingrese su respuesta:";
     getline(cin,y);
-    cout<<y;
+    compararRespuesta(y);
   }
 }
 cout<<"\nNo hay más refranes, gracias por jugar :)";
