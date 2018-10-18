@@ -3,21 +3,32 @@ using namespace std;
 string refranes[3][5]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
                       {"oídos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
                       {"A palabras necias oídos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
+string respuesta[5]={" "," "," "," "," "};
 int c=0;
+int puntaje=0;
+void menu2(){
+  cout<<"Ingrese el número de opción que desee utilizar:"<<endl;
+  cout<<"(1) Jugar a completar refranes."<<endl;
+  cout<<"(2) Mostrar resultados anteriores."<<endl;
+  cout<<"(3) Salir"<<endl<<"\n";
+}
 void compararRespuesta(int x){
   string y;
   cout<<"Ingrese su respuesta:";
   cin.ignore();
   getline(cin,y);
-  if(y==refranes[1][c])
+  if(y==refranes[1][c]){
     cout<<"\nExcelente, usted obtuvo un punto"<<endl;
+    puntaje++;
+    respuesta[c]=refranes[2][c];
+  }
   else
     cout<<"Respuesta incorrecta :c"<<endl;
   c++;
 }
+int cont=0;
 void mostrarRefranincompleto(int i){
-for(int j=0;j<5;j++){
-  cout<<"\n"<<refranes[0][j]<<endl;
+  cout<<"\n"<<refranes[0][cont]<<endl;
   cout<<"\nIngrese 1 si desea jugar o presione 2 si desea omitir el refrán y ver otro:";
   int x;
   cin>>x;
@@ -27,15 +38,18 @@ for(int j=0;j<5;j++){
     c++;
   if(x>=3||x<=0)
     cout<<"Ingrese un valor válido";
-}
-cout<<"\nNo hay más refranes, gracias por jugar :)";
+if (cont==4)
+  cout<<"\nNo hay más refranes, gracias por jugar :)"<<endl;
+cont++;
 }
 
 void mostrarRespuestas(int i){
-cout<<"respuestas";
+for(int x=0;x<5;x++){
+  cout<<respuesta[x]<<endl;
+}
 }
 void mostrarSalida(int i){
-cout<<"Ni siquiera probaste mi juego :c";
+cout<<"\nGracias por jugar :D";
 }
 void menuPrograma(){
   int i=0;
@@ -44,28 +58,23 @@ void menuPrograma(){
   cout<<"*    Bienvenido al juego de refranes     *"<<endl;
   cout<<"*                                        *"<<endl;
   cout<<"******************************************"<<endl;
-  cout<<"Ingrese el número de opción que desee utilizar:"<<endl;
+  for (int ii=0; ii<5; ii++){
+  cout<<"\nIngrese el número de opción que desee utilizar:"<<endl;
   cout<<"(1) Jugar a completar refranes."<<endl;
   cout<<"(2) Mostrar resultados anteriores."<<endl;
   cout<<"(3) Salir"<<endl<<"\n";
-  cout<<"Reglas:"<<endl;
-  cout<<"-Use los signos gramaticales correspondientes"<<endl;
-  cout<<"-Ingrese los datos en minúscula"<<endl;
-  cout<<"Seleccione una opción del Menú:";
   cin >> i;
-  for(int i=0;i<5;i++){
   if(i==1)
     mostrarRefranincompleto(i);
-    break;
-  if(i==2){
+  if(i==2)
     mostrarRespuestas(i);
-  }
   if(i==3){
     mostrarSalida(i);
-    break;  
+    break;
   }
   }
 }
+
 
 int main(){
     menuPrograma();
