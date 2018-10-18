@@ -1,20 +1,18 @@
 #include <iostream>
 using namespace std;
 string refranes[3][5]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
-                      {"oidos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
-                      {"A palabras necias oidos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
-
+                      {"oídos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
+                      {"A palabras necias oídos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
 int c=0;
-
 void compararRespuesta(int x){
   string y;
   cout<<"Ingrese su respuesta:";
   cin.ignore();
   getline(cin,y);
   if(y==refranes[1][c])
-    cout<<"Punto"<<endl;
+    cout<<"\nExcelente, usted obtuvo un punto"<<endl;
   else
-    cout<<"Respuesta incorrecta :c";
+    cout<<"Respuesta incorrecta :c"<<endl;
   c++;
 }
 void mostrarRefranincompleto(int i){
@@ -37,7 +35,7 @@ void mostrarRespuestas(int i){
 cout<<"respuestas";
 }
 void mostrarSalida(int i){
-cout<<"Gracias por jugar";
+cout<<"Ni siquiera probaste mi juego :c";
 }
 void menuPrograma(){
   int i=0;
@@ -46,17 +44,27 @@ void menuPrograma(){
   cout<<"*    Bienvenido al juego de refranes     *"<<endl;
   cout<<"*                                        *"<<endl;
   cout<<"******************************************"<<endl;
-  cout<<"Ingrese el número de opción que desea utilizar:"<<endl;
+  cout<<"Ingrese el número de opción que desee utilizar:"<<endl;
   cout<<"(1) Jugar a completar refranes."<<endl;
   cout<<"(2) Mostrar resultados anteriores."<<endl;
   cout<<"(3) Salir"<<endl<<"\n";
+  cout<<"Reglas:"<<endl;
+  cout<<"-Use los signos gramaticales correspondientes"<<endl;
+  cout<<"-Ingrese los datos en minúscula"<<endl;
+  cout<<"Seleccione una opción del Menú:";
   cin >> i;
+  for(int i=0;i<5;i++){
   if(i==1)
     mostrarRefranincompleto(i);
-  if(i==2)
+    break;
+  if(i==2){
     mostrarRespuestas(i);
-  if(i==3)
+  }
+  if(i==3){
     mostrarSalida(i);
+    break;  
+  }
+  }
 }
 
 int main(){
