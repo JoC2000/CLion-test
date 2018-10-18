@@ -3,11 +3,19 @@ using namespace std;
 string refranes[3][5]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
                       {"oidos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
                       {"A palabras necias oidos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
-void compararRespuesta(string y){
-  for(int j=0;j<5;j++){
-    if(y==refranes[0][j])
-    cout<<"¡Punto!";
-  }
+
+int c=0;
+
+void compararRespuesta(int x){
+  string y;
+  cout<<"Ingrese su respuesta:";
+  cin.ignore();
+  getline(cin,y);
+  if(y==refranes[1][c])
+    cout<<"Punto"<<endl;
+  else
+    cout<<"Respuesta incorrecta :c";
+  c++;
 }
 void mostrarRefranincompleto(int i){
 for(int j=0;j<5;j++){
@@ -15,13 +23,12 @@ for(int j=0;j<5;j++){
   cout<<"\nIngrese 1 si desea jugar o presione 2 si desea omitir el refrán y ver otro:";
   int x;
   cin>>x;
-  cin.ignore();
-  if(x==1){
-    string y;
-    cout<<"Ingrese su respuesta:";
-    getline(cin,y);
-    compararRespuesta(y);
-  }
+  if(x==1)
+    compararRespuesta(x);
+  if(x==2)
+    c++;
+  if(x>=3||x<=0)
+    cout<<"Ingrese un valor válido";
 }
 cout<<"\nNo hay más refranes, gracias por jugar :)";
 }
