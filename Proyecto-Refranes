@@ -1,22 +1,23 @@
 #include <iostream>
-#include <string>
 using namespace std;
 string refranes[3][5]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
-                      {"oídos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
-                      {"A palabras necias oídos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Más vale tarde que nunca","Hombre precavido vale por dos"}};
+                      {"oidos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
+                      {"A palabras necias oidos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
 void compararRespuesta(string y){
   cout<<y;
 }
 void mostrarRefranincompleto(int i){
-string y[1];
 for(int j=0;j<5;j++){
   cout<<"\n"<<refranes[0][j]<<endl;
   cout<<"\nIngrese 1 si desea jugar o presione 2 si desea omitir el refrán y ver otro:";
-  int x=0;
+  int x;
   cin>>x;
+  cin.ignore();
   if(x==1){
+    string y;
     cout<<"Ingrese su respuesta:";
-    cin<<y[0];    
+    getline(cin,y);
+    cout<<y;
   }
 }
 cout<<"\nNo hay más refranes, gracias por jugar :)";
