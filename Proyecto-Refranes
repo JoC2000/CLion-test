@@ -1,31 +1,33 @@
 #include <iostream>
+#include <string>
 using namespace std;
 string refranes[3][5]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
                       {"oídos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
-                      {"A palabras necias oídos sordos","A caballo regalado no se le miran los dientes","A quien madruga Dios le ayuda","Más vale tarde que nunca","Hombre precavido vale por dos"}};
+                      {"A palabras necias oídos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Más vale tarde que nunca","Hombre precavido vale por dos"}};
+void compararRespuesta(string y){
+  cout<<y;
+}
 void mostrarRefranincompleto(int i){
-string y;
+string y[1];
 for(int j=0;j<5;j++){
-  cout<<refranes[0][j]<<endl;
-  cout<<"Ingrese 1 si desea jugar o presione 2 si desea omitir el refrán y ver otro:";
+  cout<<"\n"<<refranes[0][j]<<endl;
+  cout<<"\nIngrese 1 si desea jugar o presione 2 si desea omitir el refrán y ver otro:";
   int x=0;
   cin>>x;
   if(x==1){
     cout<<"Ingrese su respuesta:";
-    cin>>y;
-    if(y==refranes[1][j])
-    cout<<"Excelente, obtuviste 1 punto";
+    cin<<y[0];    
   }
 }
+cout<<"\nNo hay más refranes, gracias por jugar :)";
 }
 
 void mostrarRespuestas(int i){
 cout<<"respuestas";
 }
 void mostrarSalida(int i){
-cout<<"salida";
+cout<<"Gracias por jugar";
 }
-
 void menuPrograma(){
   int i=0;
   cout<<"******************************************"<<endl;
@@ -36,7 +38,7 @@ void menuPrograma(){
   cout<<"Ingrese el número de opción que desea utilizar:"<<endl;
   cout<<"(1) Jugar a completar refranes."<<endl;
   cout<<"(2) Mostrar resultados anteriores."<<endl;
-  cout<<"(3) Salir"<<endl;
+  cout<<"(3) Salir"<<endl<<"\n";
   cin >> i;
   if(i==1)
     mostrarRefranincompleto(i);
