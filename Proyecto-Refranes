@@ -1,9 +1,12 @@
 #include <iostream>
 using namespace std;
-string refranes[3][5]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
-                      {"oídos sordos","no se le miran los dientes","dios le ayuda","que nunca","vale por dos"},
+const int r=5;
+string refranes[3][r]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga, **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
+                      {"oídos sordos","no se le miran los dientes","Dios le ayuda","que nunca","vale por dos"},
                       {"A palabras necias oídos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
-string respuesta[5]={" "," "," "," "," "};
+string respuesta[r]={" "," "," "," "," "};
+string refransignificado[r]={"Una palabra necia es aquella que es dicha con ignorancia o presunción con el fin de hacer daño, por eso hay que hacer oídos sordos, ignorar aquellos enunciados sin fundamento que atentan contra nosotros","A cualquier regalo o favor que alguien te ofrece no debe ser juzgado ya que te lo están ofreciendo sin recibir nada a cambio","Recomienda ser diligente para para tener éxito en las pretensiones, en el trabajo","Quiere decir que más vale hacer algo más tarde de lo previsto que nunca hacerlo","Alude a la ventaja de obrar con prevención. Aconseja ser cauto, estar vigilante para no ser engañado y considerar así que ya se ha superado la mitad de la dificulltad"};
+string significado[r]={" "," "," "," "," "};
 int c=0;
 int puntaje=0;
 void menu2(){
@@ -21,6 +24,7 @@ void compararRespuesta(int x){
     cout<<"\nExcelente, usted obtuvo un punto"<<endl;
     puntaje++;
     respuesta[c]=refranes[2][c];
+    significado[c]=refransignificado[c];
   }
   else
     cout<<"Respuesta incorrecta :c"<<endl;
@@ -29,23 +33,27 @@ void compararRespuesta(int x){
 int cont=0;
 void mostrarRefranincompleto(int i){
   cout<<"\n"<<refranes[0][cont]<<endl;
-  cout<<"\nIngrese 1 si desea jugar o presione 2 si desea omitir el refrán y ver otro:";
-  int x;
+  cout<<"\nIngrese 1 si desea jugar o presione 2 si desea omitir el refrán y ver otro:"<<endl;
+  int x=0;
   cin>>x;
   if(x==1)
     compararRespuesta(x);
   if(x==2)
     c++;
-  if(x>=3||x<=0)
-    cout<<"Ingrese un valor válido";
+  if(x>=3||x<=0){
+    cout<<"\Valor inválido, vuelve a iniciar el programa :)";
+    exit(EXIT_FAILURE);
+  }
 if (cont==4)
   cout<<"\nNo hay más refranes, gracias por jugar :)"<<endl;
 cont++;
 }
 
 void mostrarRespuestas(int i){
-for(int x=0;x<5;x++){
+for(int x=0;x<c;x++){
   cout<<respuesta[x]<<endl;
+  cout<<"Significado:"<<endl;
+  cout<<significado[x]<<endl;
 }
 }
 void mostrarSalida(int i){
@@ -58,7 +66,10 @@ void menuPrograma(){
   cout<<"*    Bienvenido al juego de refranes     *"<<endl;
   cout<<"*                                        *"<<endl;
   cout<<"******************************************"<<endl;
-  for (int ii=0; ii<5; ii++){
+  cout<<"Reglas:"<<endl;
+  cout<<"-Use correctamente los signos de puntuación";
+  cout<<"-Utilize valores alfabéticos únicamente para completar los refranes";
+  for (int ii=0; ii<r; ii++){
   cout<<"\nIngrese el número de opción que desee utilizar:"<<endl;
   cout<<"(1) Jugar a completar refranes."<<endl;
   cout<<"(2) Mostrar resultados anteriores."<<endl;
