@@ -3,7 +3,7 @@ using namespace std;
 const int r=5;
 string refranes[3][r]={{"A palabras necias ***** ******", "A caballo regalado ** ** ** ***** *** *******","A quien madruga, **** ** *****","Más vale tarde *** *****", "Hombre precavido **** *** ***"},
                       {"oídos sordos","no se le miran los dientes","Dios le ayuda","que nunca","vale por dos"},
-                      {"A palabras necias oídos sordos","A caballo regalado no se le miran los dientes","A quien madruga dios le ayuda","Mas vale tarde que nunca","Hombre precavido vale por dos"}};
+                      {"A palabras necias oídos sordos:","A caballo regalado no se le miran los dientes:","A quien madruga, Dios le ayuda:","Más vale tarde que nunca:","Hombre precavido vale por dos:"}};
 string respuesta[r]={" "," "," "," "," "};
 string refransignificado[r]={"Una palabra necia es aquella que es dicha con ignorancia o presunción con el fin de hacer daño, por eso hay que hacer oídos sordos, ignorar aquellos enunciados sin fundamento que atentan contra nosotros","A cualquier regalo o favor que alguien te ofrece no debe ser juzgado ya que te lo están ofreciendo sin recibir nada a cambio","Recomienda ser diligente para para tener éxito en las pretensiones, en el trabajo","Quiere decir que más vale hacer algo más tarde de lo previsto que nunca hacerlo","Alude a la ventaja de obrar con prevención. Aconseja ser cauto, estar vigilante para no ser engañado y considerar así que ya se ha superado la mitad de la dificulltad"};
 string significado[r]={" "," "," "," "," "};
@@ -52,9 +52,11 @@ cont++;
 void mostrarRespuestas(int i){
 for(int x=0;x<c;x++){
   cout<<respuesta[x]<<endl;
-  cout<<"Significado:"<<endl;
+  cout<<endl;
   cout<<significado[x]<<endl;
 }
+cout<<endl;
+cout<<"Puntaje:"<<puntaje;
 }
 void mostrarSalida(int i){
 cout<<"\nGracias por jugar :D";
@@ -67,8 +69,8 @@ void menuPrograma(){
   cout<<"*                                        *"<<endl;
   cout<<"******************************************"<<endl;
   cout<<"Reglas:"<<endl;
-  cout<<"-Use correctamente los signos de puntuación";
-  cout<<"-Utilize valores alfabéticos únicamente para completar los refranes";
+  cout<<"-Use correctamente los signos de puntuación"<<endl;
+  cout<<"\n-Utilize valores alfabéticos únicamente para completar los refranes";
   for (int ii=0; ii<r; ii++){
   cout<<"\nIngrese el número de opción que desee utilizar:"<<endl;
   cout<<"(1) Jugar a completar refranes."<<endl;
