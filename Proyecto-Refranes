@@ -41,7 +41,7 @@ void mostrarRefranincompleto(int i){
   if(x==2)
     c++;
   if(x>=3||x<=0){
-    cout<<"\Valor inválido, vuelve a iniciar el programa :)";
+    cout<<"\nValor inválido, vuelve a iniciar el programa :)";
     exit(EXIT_FAILURE);
   }
 if (cont==4)
