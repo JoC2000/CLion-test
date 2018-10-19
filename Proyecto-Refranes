@@ -51,7 +51,7 @@ cont++;
 
 void mostrarRespuestas(int i){
 for(int x=0;x<c;x++){
-  cout<<respuesta[x]<<endl;
+  cout<<"\n"<<respuesta[x]<<endl;
   cout<<endl;
   cout<<significado[x]<<endl;
 }
@@ -71,6 +71,7 @@ void menuPrograma(){
   cout<<"Reglas:"<<endl;
   cout<<"\n-Use correctamente los signos de puntuación"<<endl;
   cout<<"\n-Utilize valores alfabéticos únicamente para completar los refranes"<<endl;
+  cout<<"\n-Si usted ingresa un valor no admitido el programa se detendrá automáticamente"<<endl;
   for (int ii=0; ii<r; ii++){
   cout<<"\nIngrese el número de opción que desee utilizar:"<<endl;
   cout<<"(1) Jugar a completar refranes."<<endl;
