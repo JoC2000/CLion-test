@@ -66,16 +66,16 @@ void menuPrograma(){
   cin >> i;
   if(i==1)
     mostrarRefranincompleto(i);
-  if(i==2)
+  if(i==2){
     mostrarRespuestas(i);
+    ii--;
+  }
   if(i==3){
     mostrarSalida(i);
     break;
   }
   }
 }
-
-
 int main(){
     menuPrograma();
 }
