@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Crectangulo {
+    float ancho, alto;
+public:
+    //Metodos para acceder
+    void setAncho(float _ancho) { ancho = _ancho; }
+
+    void setAlto(float _alto) { alto = _alto; }
+
+    //Metodos de retorno
+    float getAncho() { return ancho; }
+
+    float getAlto() { return alto; }
+
+    float getArea() { return alto * ancho; }
+
+    float getPerimetro() { return (2 * alto) + (2 * ancho); }
+};
+
+int main () {
+    Crectangulo r1;
+    float x, y;
+    cout << "Ingrese ancho:" << endl;
+    cin >> x;
+    cout << "Ingrese alto:" << endl;
+    cin >> y;
+    r1.setAncho(x);
+    r1.setAlto(y);
+    cout << r1.getAncho() << endl;
+    cout << r1.getAlto() << endl;
+    cout << r1.getArea() << endl;
+    cout << r1.getPerimetro() << endl;
+}
