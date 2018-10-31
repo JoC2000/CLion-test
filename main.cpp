@@ -1,12 +1,27 @@
 #include <iostream>
-#include "multi.h"
-#include "potencia.h"
+#include "Alumno.h"
+
 using namespace std;
-int main()
-{
-    cout << "Hello, World!" <<endl;
-    multi(5,4);
-    double x = potencia(2,10);
-    cout<<"2 a la 10 es:"<<x;
-    return 0;
+int main() {
+    string n, a, d;
+    int e;
+    Alumno obj;
+    cout << "Nombres:" << endl;
+    getline(cin, n);
+    obj.setnombre(n);
+    cout << "Apellidos:" << endl;
+    getline(cin, a);
+    obj.setapellido(a);
+    cout << "Edad:" << endl;
+    cin >> e;
+    obj.setedad(e);
+    cout << "Direccion:" << endl;
+    cin.ignore();
+    getline(cin, d);
+    obj.setdireccion(d);
+
+    cout<<obj.getnombre()<<endl;
+    cout<<obj.getapellido()<<endl;
+    cout<<obj.getedad()<<endl;
+    cout<<obj.getdireccion();
 }
