@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+class derivada{
+    double x;
+    int r;
+public:
+    void setx(double _x) {this->x=_x;}
+    void setr(int _r) {this->r=_r;}
+    //getters
+    double derivar(){return pow((r*x),(r-1));}
+};
+
+int main(){
+    derivada obj;
+    int x,r;
+    cin>>x>>r;
+    obj.setx(x);
+    obj.setr(r);
+    cout<<fixed<<setprecision(4)<<obj.derivar();
+}
