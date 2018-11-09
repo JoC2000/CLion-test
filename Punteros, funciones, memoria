@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+class ArrayInt {
+
+private:
+    int *ptr = nullptr;
+    int n;
+public:
+    ArrayInt(int _n) : n(_n) { ptr = new int[n]; }
+
+    ~ArrayInt() { delete[] ptr; }
+
+    void setElemento(int pos, int ele);
+
+    int getElemento(int pos);
+
+    void copy(ArrayInt origen);
+
+    void print();
+};
+
+void ArrayInt::setElemento(int pos, int ele) {
+    ptr[pos] = ele;
+}
+
+void ArrayInt::print() {
+    for (int i = 0; i < n; i++)
+        cout << ptr[i] << " ";
+    cout << endl;
+}
+
+int ArrayInt::getElemento(int pos) {
+    return ptr[pos];
+}
+
+void ArrayInt::copy(ArrayInt origen) {
+    for (int i = 0; i < n; i++) {
+        ptr[i] = origen.getElemento(i);
+    }
+
+}
+
+int main() {
+    ArrayInt a(3);
+    ArrayInt b(3);
+    a.setElemento(0, 1);
+    a.setElemento(1, 4);
+    a.setElemento(2, 5);
+    a.print();
+
+    b.setElemento(0, 4);
+    b.setElemento(1, 7);
+    b.setElemento(2, -2);
+    b.print();
+    a.copy(b);
+    a.print();
+
+}
