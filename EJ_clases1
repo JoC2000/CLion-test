@@ -1,0 +1,66 @@
+/*Ejercicio 1.
+
+Complete las clases derivadas y sus correspondientes constructores
+usando como ejemplo la clase Planeta
+*/
+
+/*Ejercicio 2.
+Modifique la clase CuerpoCeleste y convierta la funcion print en virtual e implemente y sobreescriba la correspondiente funcion print en las clases derivadas.
+*/
+
+
+#include <iostream>
+using namespace std;
+
+class CuerpoCeleste {
+private:
+public:
+    string nombre;
+    double masa;
+    CuerpoCeleste(string _nombre, double _masa): nombre(_nombre), masa(_masa) {};
+    void print();
+};
+
+void CuerpoCeleste::print(){cout << "Hello, World!" <<endl;
+    return 0;
+    //cout << "nombre:" << nombre << " masa:" << masa ;
+
+}
+class Planeta: public CuerpoCeleste {
+private:
+    string estrella;
+    double gravedad;
+public:
+    Planeta(string _nombre, double _masa, double _gravedad):CuerpoCeleste(_nombre, _masa) { gravedad = _gravedad;}
+    void setNombre(string _estrella) {estrella = _estrella;}
+};
+
+class Asteroide: public CuerpoCeleste {
+private:
+    double orbita;
+    string distribucion;
+public:
+    Asteroide(string _nombre,double _masa, double _orbita):CuerpoCeleste(_nombre, _masa) {orbita =_orbita;}
+    void SetNombre(string _distribucion){distribucion=_distribucion;}
+};
+
+class Satelite: public CuerpoCeleste {
+private:
+    Planeta planeta(string nPlaneta,double mPlaneta);
+    double gravedadplanetaria;
+    string nSat;
+public:
+    Satelite(Planeta _nombre,double _masa, double _gravedadplanetaria):CuerpoCeleste(_nombre.nombre,_masa){gravedadplanetaria=_gravedadplanetaria}
+};
+
+
+
+
+int main() {
+
+
+    Planeta *p = new Planeta("Tierra", 1212.1, 9.8);
+    p->print();
+
+}
+
