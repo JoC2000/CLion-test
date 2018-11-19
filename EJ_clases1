@@ -14,9 +14,9 @@ using namespace std;
 
 class CuerpoCeleste {
 private:
-public:
     string nombre;
     double masa;
+public:
     CuerpoCeleste(string _nombre, double _masa): nombre(_nombre), masa(_masa) {};
     void print();
 };
