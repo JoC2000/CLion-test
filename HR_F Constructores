@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class Moneda {
+
+protected:
+    int monto;
+    double tipoCambio;
+public:
+    Moneda(){}
+    Moneda(double _tipoCambio): tipoCambio(_tipoCambio){ monto = 0;}
+};
+
+class Sol: public Moneda {
+public:
+    Sol(int _monto,double _tipoCambio):Moneda(tipoCambio=_tipoCambio){monto=_monto;}
+    void print();
+};
+
+void Sol::print(){
+    cout<<monto*tipoCambio;
+}
+
+int main() {
+    int x;
+    double y;
+    cin >> x >> y;
+    Sol sol(x, y);
+    sol.print();
+}
