@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+class AbstractForm {
+public:
+    AbstractForm(){}
+    virtual void draw()=0;
+};
+
+class GeoForm:public AbstractForm{
+public:
+    virtual void draw()=0;
+};
+
+class Point:public GeoForm{
+public:
+    void draw(){
+        cout<<"*";
+    }
+};
+
+class Line:public GeoForm{
+    void draw(){
+        cout<<"*"<<endl;
+        cout<<"*";
+    }
+};
+
+class Triangle:public GeoForm {
+    void draw() {
+        cout << "*" << endl;
+        cout << "**" << endl;
+        cout << "***";
+    }
+};
+
+class Square:public GeoForm{
+    void draw(){
+        for(int i=0;i<4;i++){
+            cout<<"****"<<endl;
+        }
+    }
+};
+
+
+int main() {
+
+    GeoForm *p = nullptr;
+
+    int x;
+    cin >> x;
+
+    switch (x){
+        case 1:
+            p = new Point();
+            p->draw();
+            break;
+        case 2:
+            p= new Line();
+            p->draw();
+            break;
+        case 3:
+            p= new Triangle();
+            p->draw();
+            break;
+        case 4:
+            p= new Square();
+            p->draw();
+            break;
+        default:
+            cout << "no figure.";
+            break;
+    }
+}
