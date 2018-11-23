@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+class Instrumento{
+public:
+    virtual void play()=0;
+};
+
+class Piano:public Instrumento{
+    void play(){cout<<"doremi.";}
+};
+
+class Guitarra:public Instrumento{
+    void play(){cout<<"trin trin.";}
+};
+
+int main() {
+    int x;
+    cin >> x;
+    Instrumento *ptr;
+
+    if (x == 1) {
+        ptr = new Piano();
+        ptr->play();
+    }
+    else if (x == 2) {
+        ptr = new Guitarra();
+        ptr->play();
+    } else {
+        cout << "opcion invalida.";
+    }
+}
