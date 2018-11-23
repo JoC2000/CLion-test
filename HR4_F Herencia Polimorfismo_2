@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+class Animal{
+public:
+    virtual void speak()=0;
+};
+
+class Gato:public Animal{
+public:
+    void speak(){cout<<"Miau";}
+};
+
+class Perro:public Animal{
+public:
+    void speak(){cout<<"Guau";}
+};
+
+class Pollo:public Animal{
+public:
+    void speak(){cout<<"Pio";}
+};
+
+class Vaca:public Animal{
+public:
+    void speak(){cout<<"Mu";}
+};
+
+int main() {
+
+
+    Animal *ptr;
+
+    int x;
+    cin >> x;
+
+    switch (x){
+        case 1:
+            ptr =new Gato();
+            ptr->speak();
+            break;
+        case 2:
+            ptr =new Perro();
+            ptr->speak();
+            break;
+        case 3:
+            ptr =new Pollo();
+            ptr->speak();
+            break;
+        case 4:
+            ptr =new Vaca();
+            ptr->speak();
+            break;
+        default:
+            cout << "silencio.";
+    }
+}
