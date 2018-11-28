@@ -1,69 +1,65 @@
 #include <iostream>
-#include <random>
 #include <ctime>
 
-srand(time(nullptr));
-
-class Cliente {
-  int tiempo;
-  public:
-  setTiempo(int _tiempo){this tiempo->_tiempo}; 
-  int getTiempo(return 3+rand()%(15-3));
-};
-
-class Cola {
-  private:
-    int n;   
+using namespace std;
+class Cola{
+protected:
     int tiempo;
-    Cliente *ptr;
-    int tipoCola;
-  public:
-    Cola(int _n) (n):_n { tiempo = 0; ptr = new Cliente[n];};
-    getTamanio();
-    int getCliente(); // obtiene el primer cliente y lo retira de la cola.
-    bool isEmpty(); // verifica si esta vacia la cola.
-    void setTipoCola(int _tipo) { tipoCola=_tipo;}
-};
-
-class Cajero {
-  private:
-    int id;
     int tipo;
-    int tiempo;
-  public:
-    getTipo(); // Devuelve que tipo de Cajero es para saber si atiende a cualquier cola.
-    void setTiempo(int tiempo);
-    int atender(); // resta un minuto de atencion.
-    bool estaLibre(); // Devuelve true si ya no esta ocupado.
+public:
+    Cola(){ tiempo = 3+rand()%(16-3);tipo = rand()%3;};
+    virtual int getTime()=0;
+    virtual int getTipo()=0;
 };
 
-class Banco {
-  private:
-    string nombre;
-    int numcajeros;
-    Cajero *cajeros;
-    Cola *cola;
-  public:
-    Banco(int _numcajeros);
-    int simularAtencion(); // simula proceso de atencion. En un bucle recorrer los cajeros y restar un minuto de atenncion por cada cajero.
-    void setCliente( Cliente _cliente);
+class Cliente: public Cola {
+public:
+    Cliente():Cola(){}
+
+    int getTime(){ return tiempo;}
+    int getTipo(){return tipo; }
 };
 
+int time(Cola &i){
+    return i.getTime();
+}
+int tipo(Cola &i){
+    return i.getTipo();
+}
 
+class Banco{
+public:
+    int getPreferencial(){
+        int colapreferencial[2]={1,3};
+        return colapreferencial[rand()%2];
+    }
+    int getEstandar(){
+        int colaestandar[3]={2,4,5};
+        return colaestandar[rand()%3];
+    }
+};
 
-int main()
-{
-  /*
-  1. Establecer numero de clientes
-  2. Establecer numero de cajeros.
-  3. Asignar tiempo aleatorio a los clientes.
-  4. Asignar aleatoriamente los clientes a la cola escenario 1. Y Según prioridad a escenario 2.
-  5. Mostrar el tiempo de ejecución.
+int main () {
 
-  Consideraciones.
+    srand(time(static_cast<unsigned>(0)));
+    int n;
+    cin>>n;
+    Banco b;
+    Cola *Listadeclientes[n];
 
-  Puede incorporar Herencia en el proyecto.
-  Use relaciones entre clases como se describe en el código de ejemplo.
-  */
-  return 0;
+    for (int i = 0; i < n; i++) {
+        Cola *p = new Cliente();
+        Listadeclientes[i] = p;
+        cout << endl <<endl;
+        cout << "Cliente:" << (i + 1) << endl;
+        cout <<"Tiempo:"<< time( *Listadeclientes[i] )<<endl;
+        cout <<"Tipo:"<< tipo ( *Listadeclientes[i] ) << endl;
+        if(tipo(*Listadeclientes[i])==0){
+            cout<<"Cajero:"<<b.getEstandar();
+        }
+        if((tipo(*Listadeclientes[i])==1)||(tipo(*Listadeclientes[i])==2)){
+            cout<<"Cajero:"<<b.getPreferencial();
+        }
+    }
+    Listadeclientes[n]=nullptr;
 }
