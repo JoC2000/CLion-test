@@ -42,17 +42,22 @@ public:
 int main () {
 
     srand(time(static_cast<unsigned>(0)));
-    int n;
+    int n,t=0;
     cin>>n;
     Banco b;
     Cola *Listadeclientes[n];
 
+    if(n<0||n==0){
+        cout<<"Ingrese un valor válido";
+        exit(EXIT_FAILURE);
+    }
     for (int i = 0; i < n; i++) {
         Cola *p = new Cliente();
         Listadeclientes[i] = p;
         cout << endl <<endl;
         cout << "Cliente:" << (i + 1) << endl;
         cout <<"Tiempo:"<< time( *Listadeclientes[i] )<<endl;
+        t=t+time(*Listadeclientes[i]);
         cout <<"Tipo:"<< tipo ( *Listadeclientes[i] ) << endl;
         if(tipo(*Listadeclientes[i])==0){
             cout<<"Cajero:"<<b.getEstandar();
@@ -61,5 +66,6 @@ int main () {
             cout<<"Cajero:"<<b.getPreferencial();
         }
     }
+    cout<<endl<<"Tiempo total de atencion: "<<t<<" minutos";
     Listadeclientes[n]=nullptr;
 }
